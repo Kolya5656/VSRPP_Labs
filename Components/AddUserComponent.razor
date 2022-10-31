@@ -1,0 +1,54 @@
+﻿
+<div>
+
+	<div class="row">
+		<div class="col">
+			<MatButton Raised="true" @onclick="AddUser"> Add User</MatButton>
+		</div>
+		<div class="col">
+			<input class="form-control" placeholder="User Name" @bind="newUserName"/>
+		</div>
+		<div class="col">
+			<input class="form-control" placeholder="User Last Name" @bind="newUserLastName" />
+		</div>
+		<div class="col">
+			<input class="form-control" placeholder="User Email" @bind="newUserEmail" />
+		</div>
+	</div>
+	<div>
+		<h1>Users</h1>
+	</div>
+	<table class="table table-striped">
+		<thead class="table-dark">
+		<tr>
+			<th>Id</th>
+			<th>User Name</th>
+			<th>User Last Name</th>
+			<th>User Email</th>
+			<th></th>
+		</tr>
+		</thead>
+		@foreach (var item in users)
+		{
+			<tbody>
+			<tr>
+				<td>
+					@item.UserId
+				</td>
+				<td>
+					@item.UserName
+				</td>
+				<td>
+					@item.UserLastName
+				</td>
+				<td>
+					@item.UserEmail
+				</td>
+				<td>
+					<button class="btn btn-success" @onclick="(() => DeleteUser(item))"> Delete User</button>
+				</td>
+			</tr>
+			</tbody>
+		}
+	</table>
+</div>
